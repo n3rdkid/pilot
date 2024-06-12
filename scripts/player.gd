@@ -37,8 +37,14 @@ func move_player(delta):
 	move_and_slide()
 
 func play_animation(is_moving:bool):
-	body.play("idle_"+current_direction)
-	eyes.play("idle_"+current_direction)
-	outfits.play("idle_"+current_direction)
-	accessories.play("idle_"+current_direction)
+	var animation_name = getAnimationName(is_moving)
+	body.play(animation_name)
+	eyes.play(animation_name)
+	outfits.play(animation_name)
+	accessories.play(animation_name)
 	pass
+
+func getAnimationName(is_moving:bool):
+	if(is_moving):
+		return "walk_"+current_direction
+	return "idle_"+current_direction
