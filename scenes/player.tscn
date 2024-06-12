@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://gkpcty7vf6gp"]
+[gd_scene load_steps=7 format=3 uid="uid://gkpcty7vf6gp"]
 
 [ext_resource type="SpriteFrames" uid="uid://dgma80x3totg8" path="res://assets/characters/Bodies/Body_32x32_01.tres" id="1_0ai5d"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_um065"]
 [ext_resource type="SpriteFrames" uid="uid://dpg8u78bqy6tt" path="res://assets/characters/Eyes/Eyes_32x32_03.tres" id="2_a5aeg"]
 [ext_resource type="SpriteFrames" uid="uid://b5n1n6pbyiivc" path="res://assets/characters/Outfits/Outfit_01_32x32_01.tres" id="3_m3gry"]
 [ext_resource type="SpriteFrames" uid="uid://7m6ljkl3nefw" path="res://assets/characters/Accessories/Accessory_01_Ladybug_32x32_01.tres" id="4_8lrh2"]
@@ -10,6 +11,7 @@ radius = 14.0
 height = 48.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_um065")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
