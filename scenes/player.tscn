@@ -1,14 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://gkpcty7vf6gp"]
+[gd_scene load_steps=11 format=3 uid="uid://gkpcty7vf6gp"]
 
 [ext_resource type="SpriteFrames" uid="uid://dgma80x3totg8" path="res://assets/characters/Bodies/Body_32x32_01.tres" id="1_0ai5d"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_um065"]
 [ext_resource type="SpriteFrames" uid="uid://dpg8u78bqy6tt" path="res://assets/characters/Eyes/Eyes_32x32_03.tres" id="2_a5aeg"]
 [ext_resource type="SpriteFrames" uid="uid://b5n1n6pbyiivc" path="res://assets/characters/Outfits/Outfit_01_32x32_01.tres" id="3_m3gry"]
 [ext_resource type="SpriteFrames" uid="uid://7m6ljkl3nefw" path="res://assets/characters/Accessories/Accessory_01_Ladybug_32x32_01.tres" id="4_8lrh2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_fq441"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_qrjw5"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_tn4fb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hgoc"]
 radius = 14.0
 height = 48.0
+
+[sub_resource type="Resource" id="Resource_bhvmb"]
+script = ExtResource("8_tn4fb")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_um065")
@@ -35,3 +44,12 @@ autoplay = "idle_down"
 [node name="Accessories" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("4_8lrh2")
 animation = &"idle_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("6_fq441")
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+script = ExtResource("7_qrjw5")
+tween_resource = SubResource("Resource_bhvmb")
