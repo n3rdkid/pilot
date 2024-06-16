@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://bedyn2ens3hi7"]
+
+[ext_resource type="Texture2D" uid="uid://gaeujbtf6t08" path="res://assets/individual/interactive/door_4/animated_door_4_locked_32x32.png" id="1_fr8m4"]
+[ext_resource type="Texture2D" uid="uid://ih6th7xjb3vt" path="res://assets/individual/interactive/door_4/animated_door_4_32x32.png" id="2_wwn4c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvy4c"]
+atlas = ExtResource("1_fr8m4")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acp0n"]
+atlas = ExtResource("1_fr8m4")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gehv"]
+atlas = ExtResource("1_fr8m4")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qygly"]
+atlas = ExtResource("1_fr8m4")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5yw3"]
+atlas = ExtResource("2_wwn4c")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro1h5"]
+atlas = ExtResource("2_wwn4c")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbbdh"]
+atlas = ExtResource("2_wwn4c")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqgv8"]
+atlas = ExtResource("2_wwn4c")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0vig"]
+atlas = ExtResource("2_wwn4c")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5qfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvy4c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acp0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gehv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qygly")
+}],
+"loop": true,
+"name": &"interact",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5yw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro1h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbbdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqgv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0vig")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Door_4" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n5qfu")
+autoplay = "default"
+frame_progress = 0.0746875
+speed_scale = 1.25
