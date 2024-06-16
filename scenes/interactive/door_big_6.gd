@@ -12,15 +12,13 @@ func _ready():
 
 func _on_interact():
 	if(current_state == Status.closed):
-		print("open")
 		current_state= Status.open
 		animated_sprite_2d.play("open_door")
 		animation_player.play("open_door")
 		return
 	if(current_state == Status.open):
-		print("close")
 		current_state = Status.closed
 		animated_sprite_2d.play_backwards("open_door")
-		animation_player.play_backwards("open_door")
+		animation_player.play("RESET")
 		return
 
