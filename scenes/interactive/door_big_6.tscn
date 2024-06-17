@@ -101,7 +101,7 @@ radius = 72.0069
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0627t"]
 size = Vector2(32, 55)
 
-[sub_resource type="Animation" id="Animation_8phol"]
+[sub_resource type="Animation" id="Animation_rbk0w"]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -125,8 +125,30 @@ tracks/1/keys = {
 "points": PackedFloat32Array(55, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D/CollisionShape2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(18, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[sub_resource type="Animation" id="Animation_sgach"]
+[sub_resource type="Animation" id="Animation_k46e7"]
 resource_name = "open"
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -136,8 +158,8 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(32, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.9)
+"points": PackedFloat32Array(32, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -147,26 +169,45 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(55, -0.25, 0, 0.25, 0, 82, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.9)
+"points": PackedFloat32Array(55, -0.25, 0, 0.25, 0, 78, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -13.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D/CollisionShape2D:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(18, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yd0ev"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6hpe"]
 _data = {
-"RESET": SubResource("Animation_8phol"),
-"open": SubResource("Animation_sgach")
+"RESET": SubResource("Animation_rbk0w"),
+"open": SubResource("Animation_k46e7")
 }
 
 [node name="Door_big_6" type="Node2D"]
 script = ExtResource("1_ojsqt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_hpofj")
 animation = &"open"
 autoplay = "default"
-frame = 4
-frame_progress = 1.0
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_v18mu")]
 position = Vector2(0, 18)
@@ -178,13 +219,14 @@ position = Vector2(1, -4)
 shape = SubResource("CircleShape2D_7w0ng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_nyret")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-14, 6)
+position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_0627t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yd0ev")
+"": SubResource("AnimationLibrary_t6hpe")
 }

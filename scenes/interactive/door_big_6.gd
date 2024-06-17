@@ -19,6 +19,6 @@ func _on_interact():
 	if(current_state == Status.open):
 		current_state = Status.closed
 		animated_sprite_2d.play_backwards("open")
-		animation_player.play("RESET")
+		animation_player.play_backwards("open")
 		return
 
