@@ -15,10 +15,13 @@ func _on_interact():
 		current_state= Status.open
 		animated_sprite_2d.play("open")
 		animation_player.play("open")
+		interaction_area.action_name="Close"
 		return
 	if(current_state == Status.open):
 		current_state = Status.closed
 		animated_sprite_2d.play_backwards("open")
 		animation_player.play_backwards("open")
+		interaction_area.action_name="Open"
+		
 		return
 

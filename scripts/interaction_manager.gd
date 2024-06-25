@@ -24,8 +24,11 @@ func _process(delta):
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
 		label.global_position.x -= label.size.x/2
+		print("Show label")
+		
 		label.show()
 	else:
+		print("Hide label")
 		label.hide()
 func _sort_distance_to_player(area1,area2):
 	var area1_to_player = player.global_position.distance_to(area1.global_position)

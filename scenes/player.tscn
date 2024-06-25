@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://gkpcty7vf6gp"]
 
-[ext_resource type="SpriteFrames" uid="uid://dgma80x3totg8" path="res://assets/characters/Bodies/Body_32x32_01.tres" id="1_0ai5d"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_um065"]
 [ext_resource type="SpriteFrames" uid="uid://dpg8u78bqy6tt" path="res://assets/characters/Eyes/Eyes_32x32_03.tres" id="2_a5aeg"]
-[ext_resource type="SpriteFrames" uid="uid://b5n1n6pbyiivc" path="res://assets/characters/Outfits/Outfit_01_32x32_01.tres" id="3_m3gry"]
+[ext_resource type="SpriteFrames" uid="uid://v4k048hnaong" path="res://assets/characters/Bodies/Body_32x32_02.tres" id="2_c0kys"]
 [ext_resource type="SpriteFrames" uid="uid://7m6ljkl3nefw" path="res://assets/characters/Accessories/Accessory_01_Ladybug_32x32_01.tres" id="4_8lrh2"]
+[ext_resource type="SpriteFrames" uid="uid://vwt66cv8urwa" path="res://assets/characters/Outfits/Outfit_01_32x32_06.tres" id="4_wf5fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofi0x"]
 size = Vector2(20, 13)
@@ -19,7 +19,7 @@ position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_ofi0x")
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_0ai5d")
+sprite_frames = ExtResource("2_c0kys")
 animation = &"walk_up"
 autoplay = "idle_down"
 
@@ -29,10 +29,11 @@ animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="Outfits" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3_m3gry")
+sprite_frames = ExtResource("4_wf5fe")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="Accessories" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = ExtResource("4_8lrh2")
 animation = &"idle_down"
