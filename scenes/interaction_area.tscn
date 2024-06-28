@@ -6,5 +6,9 @@
 collision_mask = 2
 script = ExtResource("1_jkv8t")
 
+[node name="AnimationPosition" type="Node2D" parent="."]
+
+[node name="ResetPosition" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -12,6 +12,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func move_player(delta):
+	if(InteractionManager.is_animating):
+		return
 	var is_moving:bool  = true
 	if(Input.is_action_pressed("ui_right")):
 		velocity.x = SPEED
