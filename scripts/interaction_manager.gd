@@ -53,8 +53,11 @@ func animate_player_interaction(animation_name):
 	is_animating = true
 	if(active_areas[0].can_animate_player):
 		var animation_position : Vector2 =  active_areas[0].get_node("AnimationPosition").global_position
+		print("Player Position : ", player.global_position)
+		
 		player.global_position = animation_position
 		print("Animation Position : ", animation_position)
+		print("After Position : ", 	player.global_position )
 		
 	body_sprite.play(animation_name)
 	eyes_sprite.play(animation_name)

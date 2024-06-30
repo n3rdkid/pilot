@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl5a35dhhqxx8" path="res://scenes/interaction_area.tscn" id="2_6h3qe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrnav"]
-radius = 30.5287
+radius = 26.0192
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2mns"]
 size = Vector2(8, 46)
@@ -24,18 +24,16 @@ action_name = "sit"
 can_animate_player = true
 
 [node name="AnimationPosition" parent="InteractionArea" index="0"]
-position = Vector2(-10, -4)
+position = Vector2(-12, -4)
 
 [node name="ResetPosition" parent="InteractionArea" index="1"]
-position = Vector2(24, 0)
+position = Vector2(24, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-visible = false
 position = Vector2(1, 18)
 shape = SubResource("CircleShape2D_jrnav")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(8, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

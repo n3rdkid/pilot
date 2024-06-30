@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://77yx5gn0gyq4"]
+
+[ext_resource type="Texture2D" uid="uid://dqeta7nnbm0n2" path="res://scenes/interactive/bed_single_222/Bedroom_Singles_32x32_222.png" id="1_mbvk3"]
+[ext_resource type="Script" path="res://scenes/interactive/bed_single_222/bed_222.gd" id="1_v6iqk"]
+[ext_resource type="Texture2D" uid="uid://q7khb5pghwd1" path="res://scenes/interactive/bed_single_222/Bedroom_Singles_32x32_273.png" id="2_f3o71"]
+[ext_resource type="Texture2D" uid="uid://j8cjdesxlftw" path="res://scenes/interactive/bed_single_222/Bedroom_Singles_32x32_275.png" id="3_t1ji1"]
+[ext_resource type="Texture2D" uid="uid://bea6fhm5ms7or" path="res://scenes/interactive/bed_single_222/Bedroom_Singles_32x32_276.png" id="3_ybqx1"]
+[ext_resource type="Texture2D" uid="uid://bhhefu48lrtc5" path="res://scenes/interactive/bed_single_222/Bedroom_Singles_32x32_274.png" id="4_rx6fs"]
+[ext_resource type="PackedScene" uid="uid://bl5a35dhhqxx8" path="res://scenes/interaction_area.tscn" id="5_r4w85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6cj0"]
+atlas = ExtResource("2_f3o71")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy7fd"]
+atlas = ExtResource("3_ybqx1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krueu"]
+atlas = ExtResource("3_t1ji1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfx21"]
+atlas = ExtResource("4_rx6fs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nukf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6cj0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy7fd")
+}],
+"loop": true,
+"name": &"sleep_both",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krueu")
+}],
+"loop": true,
+"name": &"sleep_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfx21")
+}],
+"loop": true,
+"name": &"sleep_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2igjq"]
+radius = 57.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vfth"]
+size = Vector2(61, 76)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(16, 0)
+script = ExtResource("1_v6iqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mbvk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 12)
+sprite_frames = SubResource("SpriteFrames_7nukf")
+autoplay = "default"
+
+[node name="InteractionArea" parent="." instance=ExtResource("5_r4w85")]
+action_name = "sleep"
+can_animate_player = true
+
+[node name="AnimationPosition" parent="InteractionArea" index="0"]
+position = Vector2(16, -24)
+
+[node name="ResetPosition" parent="InteractionArea" index="1"]
+position = Vector2(-3, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_2igjq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_5vfth")
+
+[editable path="InteractionArea"]
